@@ -109,7 +109,26 @@ void DeleteLast(List *L, infotype *hapus){
 }
 
 void insert_number(List *L, infotype angka){
-	
+    address predTemp, temp;
+    predTemp = NULL;
+    temp = (*L).first;
+
+    while (temp != NULL){
+        if(temp->info > angka){
+            break;
+        } else {
+            predTemp = temp;
+            temp = temp->next;
+        }
+    }
+
+    if(IsEmpty(*L) || (temp == (*L).first)){
+        InsertFirst(&(*L), angka);
+    } else if(temp == NULL){
+		InsertLast(&(*L), angka);
+	} else {
+		InsertAfter(&predTemp, angka);
+	}
 }
 
 int main(){
