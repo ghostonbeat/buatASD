@@ -13,14 +13,14 @@ void cetak(node* n) {
     node* last;
     cout<<"\nTraversal in forward direction \n";
     while (n != NULL) {
-        cout<<" "<<n->nama_mhs<<" ";
+        cout << " " << n->nama_mhs << " ";
         last = n;
         n = n->next;
     }
  
     cout<<"\nTraversal in reverse direction \n";
     while (last != NULL) {
-        cout<<" "<<last->nama_mhs<<" ";
+        cout << " " << last->nama_mhs << " ";
         last = last->back;
     }
 }

@@ -10,7 +10,7 @@ public:
 
 void cetak(node* n) {
     while (n != NULL) {
-        cout<<" "<<n->nama_mhs<<" ";
+        cout << " " << n->nama_mhs << " ";
         n = n->next;
     }
 }

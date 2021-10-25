@@ -8,27 +8,23 @@ struct node {
     node* back;
 };
 
-void cetak(node* n)
-{
+void cetak(node* n) {
     node* last;
     cout<<"\nTraversal in forward direction \n";
-    while (n != NULL)
-    {
+    while (n != NULL) {
         cout<<" "<<n->nama_mhs<<" ";
         last = n;
         n = n->next;
     }
  
     cout<<"\nTraversal in reverse direction \n";
-    while (last != NULL)
-    {
+    while (last != NULL) {
         cout<<" "<<last->nama_mhs<<" ";
         last = last->back;
     }
 }
 
-int main()
-{
+int main() {
     node* first = NULL;
     node* middle = NULL;
     node* last = NULL;
