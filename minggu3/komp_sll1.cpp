@@ -3,11 +3,12 @@
 using namespace std;
 
 typedef struct node *address;
-struct node  {
+class node {
+public:
     int no_urut;
     string nama_mhs;
-    address next;
-} element;
+    node* next;
+};
 
 address newNode(int no, string nama) {
     address baru;
@@ -51,6 +52,12 @@ void insertLAST(struct node** ref, int no, string nama) {
     last->next = baru;
 }
 
+void push(node** n, int no, string nama) {
+    if (n == NULL) {
+        insertFIRST(n, no, nama);
+    }
+}
+
 void cetak(node* n) {
     while (n != NULL) {
         cout<<" "<<n->no_urut<<" -> ";
@@ -62,10 +69,7 @@ void cetak(node* n) {
 int main() {
     struct node *head = NULL;
 
-    insertFIRST(&head, 1, "Sugiono");
-    insertAFTER(head, 2, "Mugiono");
-    insertLAST(&head, 3, "Pujianto");
-    insertAFTER(head->next, 4, "Legowo");
+    push(&head, 1, "Legiono");
 
     cetak(head);
 }
