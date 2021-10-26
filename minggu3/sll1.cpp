@@ -32,4 +32,11 @@ int main() {
     middle->next = last;
 
     cetak(first);
+
+    cout << endl;
+
+    first->next = last;
+    free(middle);
+
+    cetak(first);
 }
