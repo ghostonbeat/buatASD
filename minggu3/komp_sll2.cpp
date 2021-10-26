@@ -4,33 +4,31 @@ using namespace std;
 
 typedef struct node *address;
 struct node  {
-    int no_urut;
     string nama_mhs;
     address next;
 };
 
-address newNode(int no, string nama) {
+address newNode(string nama) {
     address baru;
     baru = (struct node*) malloc(sizeof(struct node));
 
-    baru->no_urut = no;
     baru->nama_mhs = nama;
     baru->next = NULL;
 
     return baru;
 }
 
-void insertFIRST(struct node** ref, int no, string nama) {
+void insertFIRST(struct node** ref, string nama) {
     address baru;
-    baru = newNode(no, nama); 
+    baru = newNode(nama); 
 
     baru->next = (*ref);
         (*ref) = baru;
 }
 
-void insertAFTER(struct node** ref, string i, int no, string nama) {
+void insertAFTER(struct node** ref, string i, string nama) {
     address baru;
-    baru = newNode(no, nama);
+    baru = newNode(nama);
 
     if ((*ref) != NULL) {
         struct node* prev = *ref;
@@ -43,13 +41,13 @@ void insertAFTER(struct node** ref, string i, int no, string nama) {
         prev->next = baru;
     }
     else {
-        insertFIRST(ref, no, nama);
+        insertFIRST(ref, nama);
     }
 }
 
-void insertLAST(struct node** ref, int no, string nama) {
+void insertLAST(struct node** ref, string nama) {
     address baru;
-    baru = newNode(no, nama);
+    baru = newNode(nama);
 
     if (*ref != NULL) {
         struct node* last = *ref;
@@ -63,13 +61,12 @@ void insertLAST(struct node** ref, int no, string nama) {
         last->next = baru;
     }
     else {
-        insertFIRST(ref, no, nama);
+        insertFIRST(ref, nama);
     }
 }
 
 void cetak(node* n) {
     while (n != NULL) {
-        cout<<" "<<n->no_urut<<" -> ";
         cout<<" "<<n->nama_mhs<<" ";
         n = n->next;
     }
@@ -78,10 +75,10 @@ void cetak(node* n) {
 int main() {
     struct node *head = NULL;
 
-    insertLAST(&head, 1, "Sugiono");
-    insertFIRST(&head, 2, "Mugiono");
-    insertLAST(&head, 3, "Pujianto");
-    insertAFTER(&head, "Sugiono", 4, "Legowo");
+    insertLAST(&head, "Sugiono");
+    insertFIRST(&head, "Mugiono");
+    insertLAST(&head, "Pujianto");
+    insertAFTER(&head, "Sugiono", "Legowo");
 
     cetak(head);
 }
