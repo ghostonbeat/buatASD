@@ -19,6 +19,15 @@ add newNode(string nama) {
     baru->back = NULL;
 }
 
+bool kosong(struct node** ref) {
+    if ((*ref) == NULL) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 void insertFIRST(struct node** ref, string nama) {
     add baru;
     baru = newNode(nama);
@@ -74,6 +83,65 @@ void insertLAST(struct node** ref, string nama) {
     }
 }
 
+
+void deleteFIRST(struct node** n) {
+    if (kosong(n)){
+        return;
+    }
+
+    add temp = (*n);
+
+    (*n) = temp->next;
+    (*n)->back = NULL;
+
+    free(temp);
+}
+
+void deleteLAST(struct node** n) {
+    if (kosong(n)){
+        return;
+    }
+
+    add first = (*n);
+
+    while (first->next->next != NULL) {
+        first = first->next;
+    }
+
+    add temp = first->next;
+
+    first->next = NULL;
+    temp->back = NULL;
+    free(temp);
+}
+
+void deleteAFTER(struct node** n, string i) {
+    if (kosong(n)){
+        return;
+    }
+
+    if ((*n)->nama_mhs == i) {
+        deleteFIRST(n);
+        return;
+    }
+
+    add first = (*n);
+
+    while (first->next->nama_mhs != i) {
+        first = first->next;
+    }
+
+    if (first->next == NULL) {
+        deleteLAST(n);
+        return;
+    }
+
+    add temp = first->next;
+    first->next = temp->next;
+    temp->next->back = first;
+    free(temp);
+}
+
 void cetak(node* n) {
     node* last;
     
@@ -98,6 +166,14 @@ int main() {
     insertLAST(&list, "Yuli");
     insertFIRST(&list, "Katno");
     insertAFTER(&list, "Katno", "Suwarno");
+
+    cetak(list);
+
+    cout << endl;
+
+    deleteAFTER(&list, "Yanto");
+    deleteFIRST(&list);
+    deleteLAST(&list);
 
     cetak(list);
 }
