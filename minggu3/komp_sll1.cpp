@@ -23,38 +23,48 @@ address newNode(int no, string nama) {
 
 void insertFIRST(struct node** ref, int no, string nama) {
     address baru;
-    baru = newNode(no, nama);
+    baru = newNode(no, nama); 
 
     baru->next = (*ref);
-    (*ref) = baru;
+        (*ref) = baru;
 }
 
-void insertAFTER(struct node* prev, int no, string nama) {
+void insertAFTER(struct node** ref, string i, int no, string nama) {
     address baru;
     baru = newNode(no, nama);
 
-    baru->next = prev->next;
-    prev->next = baru;
+    if ((*ref) != NULL) {
+        struct node* prev = *ref;
+
+        while (prev->nama_mhs != i) {
+            prev = prev->next;
+        }
+
+        baru->next = prev->next;
+        prev->next = baru;
+    }
+    else {
+        insertFIRST(ref, no, nama);
+    }
 }
 
 void insertLAST(struct node** ref, int no, string nama) {
     address baru;
     baru = newNode(no, nama);
 
-    struct node* last = *ref;
+    if (*ref != NULL) {
+        struct node* last = *ref;
 
-    baru->next = NULL;
+        baru->next = NULL;
 
-    while (last->next != NULL) {
-        last = last->next;
+        while (last->next != NULL) {
+            last = last->next;
+        }
+
+        last->next = baru;
     }
-
-    last->next = baru;
-}
-
-void push(node** n, int no, string nama) {
-    if (n == NULL) {
-        insertFIRST(n, no, nama);
+    else {
+        insertFIRST(ref, no, nama);
     }
 }
 
@@ -69,7 +79,10 @@ void cetak(node* n) {
 int main() {
     struct node *head = NULL;
 
-    push(&head, 1, "Legiono");
+    insertLAST(&head, 1, "Sugiono");
+    insertFIRST(&head, 2, "Mugiono");
+    insertLAST(&head, 3, "Pujianto");
+    insertAFTER(&head, "Sugiono", 4, "Legowo");
 
     cetak(head);
 }
