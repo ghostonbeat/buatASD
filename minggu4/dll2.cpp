@@ -44,5 +44,4 @@ int main() {
     last->back = middle;
 
     cetak(first);
-
 }

@@ -79,5 +79,4 @@ int main() {
     insertAFTER(&list, "Katno", "Suwarno");
 
     cetak(list);
-
 }

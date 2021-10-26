@@ -31,5 +31,4 @@ int main() {
     middle->next = last;
 
     cetak(first);
-
 }
