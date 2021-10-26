@@ -45,4 +45,12 @@ int main() {
     last->back = middle;
 
     cetak(first);
+    
+    cout << endl;
+
+    first->next = last;
+    last->back = first;
+    free(middle);
+
+    cetak(first);
 }
