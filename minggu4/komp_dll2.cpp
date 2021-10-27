@@ -5,8 +5,8 @@ using namespace std;
 typedef struct node *add;
 struct node {
     string nama_mhs;
-    node* next;
-    node* back;
+    add next;
+    add back;
 };
 
 add newNode(string nama) {
