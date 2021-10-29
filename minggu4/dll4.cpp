@@ -22,7 +22,7 @@ void cetak(link* n) {
         temp = temp->next;
     }
 
-    node* temp = n->tail;
+    temp = n->tail;
  
     cout << "\nTraversal in reverse direction \n";
     while (temp != NULL) {
