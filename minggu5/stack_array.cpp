@@ -2,14 +2,16 @@
 #include <stdlib.h>
 using namespace std;
 
+typedef string infotype;
+
 int tanda = 10;
 
 struct link {
-    string *top;
-    string *batas;
+    infotype *top;
+    infotype *batas;
 };
 
-void inisial(struct link* ref, string* nama) {
+void inisial(struct link* ref, infotype* nama) {
     int i = tanda-1;
     ref->top = nama;
     ref->batas = nama+i;
@@ -33,7 +35,7 @@ bool penuh(struct link* ref) {
     }
 }
 
-void push(struct link* ref, string wadah) {
+void push(struct link* ref, infotype wadah) {
     if (!penuh(ref)) {
         *(ref->top) = wadah;
         geser(ref);
@@ -43,7 +45,7 @@ void push(struct link* ref, string wadah) {
     }
 }
 
-void cetak(string* nama) {
+void cetak(infotype* nama) {
     if (*nama != "") {
         int i = tanda-1;
         while (i >= 0) {
@@ -59,7 +61,7 @@ void cetak(string* nama) {
 }
 
 int main() {
-    string nama_mhs[tanda];
+    infotype nama_mhs[tanda];
     link data;
 
     inisial(&data, nama_mhs);
