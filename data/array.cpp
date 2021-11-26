@@ -3,6 +3,7 @@
 using namespace std;
 
 #define Maks 10
+#define Nil 0
 
 bool lanjut = true;
 
@@ -34,12 +35,12 @@ void deleteData(info data, int index) {
     if (index == -1) {
         for (int i=0; i<Maks; i++) {
             if (arr(i) == data) {
-                arr(i) = 0;
+                arr(i) = Nil;
             }
         }
     }
     else {
-        arr(index) = 0;
+        arr(index) = Nil;
     }
 }
 
