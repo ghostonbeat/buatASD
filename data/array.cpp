@@ -45,6 +45,7 @@ void deleteData(info data, int index) {
 }
 
 void print() {
+    cout << endl;
     for (int i=0; i<Maks; i++) {
         if (arr(i) != Nil) {
             cout << arr(i) << endl;
