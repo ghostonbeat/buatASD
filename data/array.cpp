@@ -7,23 +7,23 @@ using namespace std;
 
 bool lanjut = true;
 
-typedef int info;
-info NuL = 0;
+typedef string info;
+info NuL = "";
 info M[Maks];
 
-#define arr(P) M[P]
+#define Array(P) M[P]
 
 void createEmpty() {
     for (int i=0; i<Maks; i++) {
-        arr(i) = Nil;
+        Array(i) = Nil;
     }
 }
 
 void inputData(info data, int index) {
     if (index < Maks && index >= 0) {
-        if (arr(index) == Nil) {
+        if (Array(index) == Nil) {
             if (data != Nil) {
-                arr(index) = data;
+                Array(index) = data;
             }  
         }  
     }
@@ -35,21 +35,21 @@ void inputData(info data, int index) {
 void deleteData(info data, int index) {
     if (index == -1) {
         for (int i=0; i<Maks; i++) {
-            if (arr(i) == data) {
-                arr(i) = Nil;
+            if (Array(i) == data) {
+                Array(i) = Nil;
             }
         }
     }
     else {
-        arr(index) = Nil;
+        Array(index) = Nil;
     }
 }
 
 void print() {
     cout << endl;
     for (int i=0; i<Maks; i++) {
-        if (arr(i) != Nil) {
-            cout << arr(i) << endl;
+        if (Array(i) != Nil) {
+            cout << Array(i) << endl;
         }
     }
 }
