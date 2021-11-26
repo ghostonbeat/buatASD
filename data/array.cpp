@@ -51,7 +51,8 @@ void menu() {
     cout << "Pilih Menu" << endl;
     cout << "1. Masuk Data" << endl;
     cout << "2. Hapus Data" << endl;
-    cout << "3. Keluar" << endl;
+    cout << "3. Cetak" << endl;
+    cout << "4. Keluar" << endl;
     cin >> pilih;
 
     switch (pilih) {
@@ -96,6 +97,11 @@ void menu() {
         }
 
         case 3: {
+            print();
+            break;
+        }
+        
+        case 4: {
             lanjut = false;
             break;
         }
