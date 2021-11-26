@@ -19,7 +19,7 @@ void createEmpty() {
 }
 
 void inputData(info data, int index) {
-    if (index < Maks && index > 0) {
+    if (index < Maks && index >= 0) {
         if (arr(index) == 0) {
             if (data != 0) {
                 arr(index) = data;
