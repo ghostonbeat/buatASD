@@ -55,7 +55,7 @@ void menu() {
     cin >> pilih;
 
     switch (pilih) {
-        case 1:
+        case 1: {
             info dataInput = 0;
             int dataIndex = -1;
             cout << "Masukkan Data :";
@@ -64,10 +64,11 @@ void menu() {
             cin >> dataIndex;
             inputData(dataInput, dataIndex);
             break;
-    
-        case 2:
-            info dataInput = 0;
-            int dataIndex = -1;
+        }   
+
+        case 2: {
+            info dataInputLAGI = 0;
+            int dataIndexLAGI = -1;
             int pilihLAGI;
 
             cout << "Hapus berdasarkan?" << endl;
@@ -75,27 +76,33 @@ void menu() {
             cout << "2. Index" << endl;
             cin >> pilihLAGI;
             switch (pilihLAGI) {
-                case 1:
+                case 1: {
                     cout << "Masukkan Data :";
-                    cin >> dataInput;
+                    cin >> dataInputLAGI;
                     break;
+                }
         
-                case 2:
+                case 2: {
                     cout << endl << "Masukkan Index :";
-                    cin >> dataIndex;
+                    cin >> dataIndexLAGI;
                     break;
+                }
         
-                default:
+                default: {
                     break;
+                }
             }
             break;
+        }
 
-        case 3:
+        case 3: {
             lanjut = false;
             break;
+        }
     
-        default:
+        default: {
             break;
+        }
     }
 }
 
