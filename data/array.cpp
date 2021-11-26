@@ -119,7 +119,7 @@ void menu() {
 
 int main() {
     while (lanjut) {
-        cout << endl << "========================";
+        cout << endl << "========================" << endl;
         menu();
     }
 }
