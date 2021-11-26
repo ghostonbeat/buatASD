@@ -3,9 +3,7 @@
 using namespace std;
 
 struct node {
-    int ID;
     string nama_mhs;
-    string nim;
     node* next;
 };
 
