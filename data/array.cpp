@@ -3,25 +3,26 @@
 using namespace std;
 
 #define Maks 10
-#define Nil 0
+#define Nil NuL
 
 bool lanjut = true;
 
 typedef int info;
+info NuL = 0;
 info M[Maks];
 
 #define arr(P) M[P]
 
 void createEmpty() {
     for (int i=0; i<Maks; i++) {
-        arr(i) = 0;
+        arr(i) = Nil;
     }
 }
 
 void inputData(info data, int index) {
     if (index < Maks && index >= 0) {
-        if (arr(index) == 0) {
-            if (data != 0) {
+        if (arr(index) == Nil) {
+            if (data != Nil) {
                 arr(index) = data;
             }  
         }  
