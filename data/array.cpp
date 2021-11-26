@@ -41,7 +41,16 @@ void deleteData(info data, int index) {
         }
     }
     else {
-        Array(index) = Nil;
+        if (index < Maks && index >= 0) {
+            if (Array(index) == Nil) {
+                if (data != Nil) {
+                    Array(index) = Nil;
+                }  
+            }  
+        }
+        else {
+            cout << "Out of Range!!!" << endl;
+        }
     }
 }
 
