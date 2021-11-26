@@ -68,7 +68,7 @@ void menu() {
         case 2:
             info dataInput = 0;
             int dataIndex = -1;
-            int pilih = -1;
+            int pilih;
 
             cout << "Hapus berdasarkan?" << endl;
             cout << "1. Data" << endl;
