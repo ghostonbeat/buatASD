@@ -68,13 +68,13 @@ void menu() {
         case 2:
             info dataInput = 0;
             int dataIndex = -1;
-            int pilih;
+            int pilihLAGI;
 
             cout << "Hapus berdasarkan?" << endl;
             cout << "1. Data" << endl;
             cout << "2. Index" << endl;
-            cin >> pilih;
-            switch (pilih) {
+            cin >> pilihLAGI;
+            switch (pilihLAGI) {
                 case 1:
                     cout << "Masukkan Data :";
                     cin >> dataInput;
