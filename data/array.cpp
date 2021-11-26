@@ -98,6 +98,7 @@ void menu() {
                     break;
                 }
             }
+            deleteData(dataInputLAGI, dataIndexLAGI);
             break;
         }
 
