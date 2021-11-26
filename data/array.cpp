@@ -18,11 +18,16 @@ void createEmpty() {
 }
 
 void inputData(info data, int index) {
-    if (arr(index) == 0) {
-        if (data != 0) {
-            arr(index) = data;
+    if (index > Maks) {
+        if (arr(index) == 0) {
+            if (data != 0) {
+                arr(index) = data;
+            }  
         }  
-    }   
+    }
+    else {
+        cout << "Out of Range!!!" << endl;
+    }
 }
 
 void deleteData(info data, int index) {
