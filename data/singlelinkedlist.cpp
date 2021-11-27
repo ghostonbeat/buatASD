@@ -22,8 +22,8 @@ struct link {
 #define D(P) P->data
 
 void createEmpty(addLink *dat) {
-    (*dat) = new link();
-    H((*dat)) = Nil;
+    DAT = new link();
+    H(DAT) = Nil;
 }
 
 addList addNew(info masuk) {
