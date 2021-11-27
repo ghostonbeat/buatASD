@@ -4,7 +4,7 @@ using namespace std;
 
 #define Nil NULL
 
-typedef int info;
+typedef string info;
 typedef struct body *addList;
 typedef struct body {
     info data;
@@ -106,11 +106,11 @@ int main() {
     addLink tampung;
     createEmpty(&tampung);
     addList temp;
-    insertFirst(&tampung, 12);
-    insertFirst(&tampung, 15);
-    insertLast(&tampung, 20);
-    insertLast(&tampung, 300);
-    insertAfter(&tampung, 1212, 2);
-    insertAfter(&tampung, 50, 1);
+    insertFirst(&tampung, "Yuli");
+    insertFirst(&tampung, "Katno");
+    insertLast(&tampung, "Rohman");
+    insertLast(&tampung, "Aini");
+    insertAfter(&tampung, "Topik", 2);
+    insertAfter(&tampung, "Damar", 1);
     print(tampung);
 }
