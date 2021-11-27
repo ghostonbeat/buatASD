@@ -77,7 +77,7 @@ void insertAfter(addLink *dat, info newData, int index) {
     int MaxEl = scanning(*dat);
     addList NewElmt = addNew(newData);
     
-    if (index > 0 && index < MaxEl) {
+    if (index >= 0 && index < MaxEl) {
         addList Node = H(DAT);
         for (int i=0; i<index; i++) {
             Node = N(Node);
@@ -88,6 +88,65 @@ void insertAfter(addLink *dat, info newData, int index) {
     }
     else if (index == 0 && H(DAT) == Nil) {
         H(DAT) = NewElmt;
+    }
+    else {
+        cout << "Out of Range!!!" << endl;
+    }
+}
+
+void deleteFirst(addLink *dat) {
+    if (H(DAT) != Nil) {
+        addList Temp = H(DAT);
+        H(DAT) = N(Temp);
+        free(Temp);
+    }
+    else {
+        cout << "It's Empty" << endl;
+    }
+}
+
+void deleteLast(addLink *dat) {
+    if (H(DAT) != Nil) {
+        addList Before = H(DAT);
+        while (N(N(Before)) != Nil) {
+            Before = N(Before);
+        }
+        addList Temp = N(Before);
+        N(Before) = Nil;
+        free(Temp);
+    }
+    else {
+        cout << "It's Empty" << endl;
+    }
+}
+
+void deleteAfter(addLink *dat, int index) {
+    int MaxEl = scanning(*dat);
+
+    if (index >= 0 && index < MaxEl) {
+        if (index == 0 && H(DAT) != Nil) {
+            deleteFirst(dat);
+        }
+        else if (index == MaxEl-1 && H(DAT) != Nil) {
+            deleteLast(dat);
+        }
+        else {
+            addList Before, Temp, After;
+            Before = H(DAT);
+            for (int i=0; i<MaxEl-3; i++) {
+                Before = N(Before);
+                Temp = N(Before);
+                After = N(Temp);
+                cout << "1. " <<D(Before) << endl;
+                cout << "1. " <<D(Temp) << endl;
+                cout << "1. " <<D(After) << endl;
+            }
+        N(Before) = After;
+        free(Temp);
+        }
+    }
+    else if (H(DAT) == Nil) {
+        cout << "It's Empty" << endl;
     }
     else {
         cout << "Out of Range!!!" << endl;
@@ -112,5 +171,8 @@ int main() {
     insertLast(&tampung, "Aini");
     insertAfter(&tampung, "Topik", 2);
     insertAfter(&tampung, "Damar", 1);
+    print(tampung);
+    cout << "======================" << endl;
+    deleteAfter(&tampung, 0);
     print(tampung);
 }
