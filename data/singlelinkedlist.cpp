@@ -161,18 +161,16 @@ void print(addLink role) {
     }
 }
 
+void menu() {
+    int pilih;
+    cout << "Pilih Menu" << endl;
+    cout << "1. Masuk Data" << endl;
+    cout << "2. Hapus Data" << endl;
+    cout << "3. Cetak" << endl;
+    cout << "4. Keluar" << endl;
+    cin >> pilih;
+}
+
 int main() {
-    addLink tampung;
-    createEmpty(&tampung);
-    addList temp;
-    insertFirst(&tampung, "Yuli");
-    insertFirst(&tampung, "Katno");
-    insertLast(&tampung, "Rohman");
-    insertLast(&tampung, "Aini");
-    insertAfter(&tampung, "Topik", 2);
-    insertAfter(&tampung, "Damar", 1);
-    print(tampung);
-    cout << "======================" << endl;
-    deleteAfter(&tampung, 0);
-    print(tampung);
+    
 }

@@ -74,7 +74,7 @@ void menu() {
 
     switch (pilih) {
         case 1: {
-            info dataInput = 0;
+            info dataInput = Nil;
             int dataIndex = -1;
             cout << "Masukkan Data :";
             cin >> dataInput;
@@ -85,7 +85,7 @@ void menu() {
         }   
 
         case 2: {
-            info dataInputLAGI = 0;
+            info dataInputLAGI = Nil;
             int dataIndexLAGI = -1;
             int pilihLAGI;
 
@@ -131,6 +131,7 @@ void menu() {
 }
 
 int main() {
+    createEmpty();
     while (lanjut) {
         cout << endl << "========================" << endl;
         menu();
