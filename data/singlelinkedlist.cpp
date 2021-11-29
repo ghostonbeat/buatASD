@@ -157,7 +157,7 @@ void deleteAfter(addLink *dat, int index) {
 }
 
 void print(addLink *role) {
-    addList Temp = H((*role));
+    addList Temp = H(ROLE);
     while (Temp != Nil) {
         cout << D(Temp) << endl;
         Temp = N(Temp);
