@@ -11,21 +11,25 @@ typedef struct body *addList;
 typedef struct body {
     info data;
     addList next;
+    addList prev;
 } list;
 
 typedef struct link *addLink;
 struct link {
     addList head;
+    addList tail;
 };
 
-#define H(P) P->head
+#define H(A) A->head
+#define T(A) A->tail
 #define DAT (*dat)
-#define N(P) P->next
-#define D(P) P->data
+#define N(A) A->next
+#define D(A) A->data
 
 void createEmpty(addLink *dat) {
     DAT = new link();
     H(DAT) = Nil;
+    T(DAT) = Nil;
 }
 
 addList addNew(info masuk) {

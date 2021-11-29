@@ -18,10 +18,10 @@ struct link {
     addList head;
 };
 
-#define H(P) P->head
+#define H(A) A->head
 #define DAT (*dat)
-#define N(P) P->next
-#define D(P) P->data
+#define N(A) A->next
+#define D(A) A->data
 
 void createEmpty(addLink *dat) {
     DAT = new link();
