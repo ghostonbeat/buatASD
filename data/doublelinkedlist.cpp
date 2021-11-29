@@ -44,20 +44,27 @@ addList addNew(info masuk) {
 }
 
 int scanning(addLink role) {
-    int count = -1;
-    addList temp = H(role);
-    while (temp != Nil) {
-        count++;
-        temp = N(temp);
+    int count1 = -1;
+    addList temp1 = H(role);
+    while (temp1 != Nil) {
+        count1++;
+        temp1 = N(temp1);
     }
-    count++;
-    return count;
+    count1++;
+    int count2 = -1;
+    addList temp2 = T(role);
+    while (temp2 != Nil) {
+        count2++;
+        temp2 = P(temp2);
+    }
+    count2++;
+    return int((count1+count2)/2);
 }
 
 void insertFirst(addLink *dat, info newData) {
     addList NewElmt = addNew(newData);
 
-    if (H(DAT) == Nil) {
+    if (H(DAT) == Nil && T(DAT) == Nil) {
         H(DAT) = NewElmt;
         T(DAT) = NewElmt;
     }
@@ -69,18 +76,18 @@ void insertFirst(addLink *dat, info newData) {
     }
 }
 
-/*void insertLast(addLink *dat, info newData) {
+void insertLast(addLink *dat, info newData) {
     addList NewElmt = addNew(newData);
 
-    if (H(DAT) == Nil) {
+    if (H(DAT) == Nil && T(DAT) == Nil) {
         H(DAT) = NewElmt;
+        T(DAT) = NewElmt;
     }
     else {
-        addList Node = H(DAT);
-        while (N(Node) != Nil) {
-            Node = N(Node);
-        }
+        addList Node = T(DAT);
         N(Node) = NewElmt;
+        P(NewElmt) = Node;
+        T(DAT) = NewElmt;
     }
 }
 
@@ -93,19 +100,25 @@ void insertAfter(addLink *dat, info newData, int index) {
         for (int i=0; i<index; i++) {
             Node = N(Node);
         }
-        addList Temp = N(Node);
+        addList Temp = T(DAT);
+        for (int i=MaxEl-1; i>index+1; i--) {
+            Temp = P(Temp);
+        }
         N(NewElmt) = Temp;
+        P(Temp) = NewElmt;
         N(Node) = NewElmt;
+        P(NewElmt) = Node;
     }
     else if (index == 0 && H(DAT) == Nil) {
         H(DAT) = NewElmt;
+        T(DAT) = NewElmt;
     }
     else {
         cout << "Out of Range!!!" << endl;
     }
 }
 
-void deleteFirst(addLink *dat) {
+/*void deleteFirst(addLink *dat) {
     if (H(DAT) != Nil) {
         addList Temp = H(DAT);
         H(DAT) = N(Temp);
@@ -165,14 +178,28 @@ void deleteAfter(addLink *dat, int index) {
 }*/
 
 void print(addLink *role) {
-    addList Temp = H((*role));
+    cout << "Dari Depan ke Belakang...." << endl;
+    addList Temp = H(ROLE);
     while (Temp != Nil) {
         cout << D(Temp) << endl;
         Temp = N(Temp);
+    }
+    cout << endl << "Dari Belakang ke Depan...." << endl;
+    Temp = T(ROLE);
+    while (Temp != Nil) {
+        cout << D(Temp) << endl;
+        Temp = P(Temp);
     }
 }
 
 int main() {
     addLink tampung;
     createEmpty(&tampung);
+    insertFirst(&tampung, "Yuli");
+    insertFirst(&tampung, "Katno");
+    insertLast(&tampung, "Ade");
+    insertLast(&tampung, "Rohman");
+    insertAfter(&tampung, "Mawar", 1);
+    insertAfter(&tampung, "Tio", 3);
+    print(&tampung);
 }
