@@ -2,25 +2,25 @@
 #include <stdlib.h>
 using namespace std;
 
-#define Maks 10
+#define MaxEl 10
 #define Nil NuL
 
 bool lanjut = true;
 
 typedef string info;
 info NuL = "";
-info M[Maks];
+info M[MaxEl];
 
 #define Array(P) M[P]
 
 void createEmpty() {
-    for (int i=0; i<Maks; i++) {
+    for (int i=0; i<MaxEl; i++) {
         Array(i) = Nil;
     }
 }
 
 void inputData(info data, int index) {
-    if (index < Maks && index >= 0) {
+    if (index < MaxEl && index >= 0) {
         if (Array(index) == Nil) {
             if (data != Nil) {
                 Array(index) = data;
@@ -32,31 +32,26 @@ void inputData(info data, int index) {
     }
 }
 
-void deleteData(info data, int index) {
-    if (index == -1) {
-        for (int i=0; i<Maks; i++) {
-            if (Array(i) == data) {
-                Array(i) = Nil;
-            }
+void deleteData(info data) {
+    for (int i=0; i<MaxEl; i++) {
+        if (Array(i) == data) {
+            Array(i) = Nil;
         }
     }
+}
+
+void deleteDataINDEX(int index) {
+    if (index >= 0 && index < MaxEl) {
+        Array(index) = Nil;
+    }
     else {
-        if (index < Maks && index >= 0) {
-            if (Array(index) == Nil) {
-                if (data != Nil) {
-                    Array(index) = Nil;
-                }  
-            }  
-        }
-        else {
-            cout << "Out of Range!!!" << endl;
-        }
+        cout << "Out of Range!!!" << endl;
     }
 }
 
 void print() {
     cout << endl;
-    for (int i=0; i<Maks; i++) {
+    for (int i=0; i<MaxEl; i++) {
         if (Array(i) != Nil) {
             cout << Array(i) << endl;
         }
@@ -85,24 +80,27 @@ void menu() {
         }   
 
         case 2: {
-            info dataInputLAGI = Nil;
-            int dataIndexLAGI = -1;
-            int pilihLAGI;
+            info dataInput = Nil;
+            int dataIndex = 0;
+            delete &pilih;
+            int pilih;
 
             cout << "Hapus berdasarkan?" << endl;
             cout << "1. Data" << endl;
             cout << "2. Index" << endl;
-            cin >> pilihLAGI;
-            switch (pilihLAGI) {
+            cin >> pilih;
+            switch (pilih) {
                 case 1: {
                     cout << "Masukkan Data :";
-                    cin >> dataInputLAGI;
+                    cin >> dataInput;
+                    deleteData(dataInput);
                     break;
                 }
         
                 case 2: {
                     cout << endl << "Masukkan Index :";
-                    cin >> dataIndexLAGI;
+                    cin >> dataIndex;
+                    deleteDataINDEX(dataIndex);
                     break;
                 }
         
@@ -110,7 +108,6 @@ void menu() {
                     break;
                 }
             }
-            deleteData(dataInputLAGI, dataIndexLAGI);
             break;
         }
 

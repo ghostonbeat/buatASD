@@ -4,6 +4,8 @@ using namespace std;
 
 #define Nil NULL
 
+bool lanjut = true;
+
 typedef string info;
 typedef struct body *addList;
 typedef struct body {
@@ -169,6 +171,25 @@ void menu() {
     cout << "3. Cetak" << endl;
     cout << "4. Keluar" << endl;
     cin >> pilih;
+
+    switch (pilih) {
+        case 1: {
+            info dataInput = Nil;
+            delete &pilih;
+            int pilih;
+            cout << "Masukkan Data :";
+            cin >> dataInput;
+            cout << endl << "Pilih Salah Satu!" << endl;
+            cout << "1. Data diletakkan di bagian depan" << endl;
+            cout << "2. Data diletakkan di bagian belakang" << endl;
+            cout << "3. Data diselipkan di antara kedua Data" << endl;
+            cin >> pilih;
+        }
+        
+        default: {
+            break;
+        }
+    }
 }
 
 int main() {
