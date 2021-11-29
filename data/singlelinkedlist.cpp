@@ -33,7 +33,7 @@ addList addNew(info masuk) {
     NewElmt = new list();
     D(NewElmt) = masuk;
     N(NewElmt) = Nil;
-    return NewElmt;
+    return NewElmt;awda
 }
 
 int scanning(addLink role) {
