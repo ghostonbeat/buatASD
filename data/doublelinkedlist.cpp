@@ -23,7 +23,9 @@ struct link {
 #define H(A) A->head
 #define T(A) A->tail
 #define DAT (*dat)
+#define ROLE (*role)
 #define N(A) A->next
+#define P(A) A->prev
 #define D(A) A->data
 
 void createEmpty(addLink *dat) {
@@ -37,6 +39,7 @@ addList addNew(info masuk) {
     NewElmt = new list();
     D(NewElmt) = masuk;
     N(NewElmt) = Nil;
+    P(NewElmt) = Nil;
     return NewElmt;
 }
 
@@ -56,15 +59,17 @@ void insertFirst(addLink *dat, info newData) {
 
     if (H(DAT) == Nil) {
         H(DAT) = NewElmt;
+        T(DAT) = NewElmt;
     }
     else {
         addList Node = H(DAT);
         N(NewElmt) = Node;
+        P(Node) = NewElmt;
         H(DAT) = NewElmt;
     }
 }
 
-void insertLast(addLink *dat, info newData) {
+/*void insertLast(addLink *dat, info newData) {
     addList NewElmt = addNew(newData);
 
     if (H(DAT) == Nil) {
@@ -157,7 +162,7 @@ void deleteAfter(addLink *dat, int index) {
     else {
         cout << "Out of Range!!!" << endl;
     }
-}
+}*/
 
 void print(addLink *role) {
     addList Temp = H((*role));

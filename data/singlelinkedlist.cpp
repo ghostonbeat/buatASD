@@ -20,6 +20,7 @@ struct link {
 
 #define H(A) A->head
 #define DAT (*dat)
+#define ROLE (*role)
 #define N(A) A->next
 #define D(A) A->data
 
