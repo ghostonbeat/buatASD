@@ -155,43 +155,15 @@ void deleteAfter(addLink *dat, int index) {
     }
 }
 
-void print(addLink role) {
-    addList Temp = H(role);
+void print(addLink *role) {
+    addList Temp = H((*role));
     while (Temp != Nil) {
         cout << D(Temp) << endl;
         Temp = N(Temp);
     }
 }
 
-void menu() {
-    int pilih;
-    cout << "Pilih Menu" << endl;
-    cout << "1. Masuk Data" << endl;
-    cout << "2. Hapus Data" << endl;
-    cout << "3. Cetak" << endl;
-    cout << "4. Keluar" << endl;
-    cin >> pilih;
-
-    switch (pilih) {
-        case 1: {
-            info dataInput = Nil;
-            delete &pilih;
-            int pilih;
-            cout << "Masukkan Data :";
-            cin >> dataInput;
-            cout << endl << "Pilih Salah Satu!" << endl;
-            cout << "1. Data diletakkan di bagian depan" << endl;
-            cout << "2. Data diletakkan di bagian belakang" << endl;
-            cout << "3. Data diselipkan di antara kedua Data" << endl;
-            cin >> pilih;
-        }
-        
-        default: {
-            break;
-        }
-    }
-}
-
 int main() {
-    
+    addLink tampung;
+    createEmpty(&tampung);
 }
