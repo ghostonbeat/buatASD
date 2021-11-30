@@ -5,8 +5,6 @@ using namespace std;
 #define MaxEl 10
 #define Nil NuL
 
-bool lanjut = true;
-
 typedef string info;
 info NuL = "";
 info M[MaxEl];

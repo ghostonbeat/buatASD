@@ -4,8 +4,6 @@ using namespace std;
 
 #define Nil NULL
 
-bool lanjut = true;
-
 typedef string info;
 typedef struct body *addList;
 typedef struct body {
