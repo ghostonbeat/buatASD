@@ -134,7 +134,7 @@ void deleteAfter(addLink *dat, int index) {
         else {
             addList Before, Temp, After;
             Before = H(DAT);
-            for (int i=0; i<MaxEl-3; i++) {
+            for (int i=0; i<index-1; i++) {
                 Before = N(Before);
                 Temp = N(Before);
                 After = N(Temp);
