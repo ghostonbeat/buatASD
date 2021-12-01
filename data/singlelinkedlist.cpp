@@ -138,9 +138,6 @@ void deleteAfter(addLink *dat, int index) {
                 Before = N(Before);
                 Temp = N(Before);
                 After = N(Temp);
-                cout << "1. " <<D(Before) << endl;
-                cout << "1. " <<D(Temp) << endl;
-                cout << "1. " <<D(After) << endl;
             }
         N(Before) = After;
         free(Temp);
